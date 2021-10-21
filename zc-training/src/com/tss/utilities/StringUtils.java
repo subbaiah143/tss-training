@@ -1,8 +1,16 @@
 package com.tss.utilities;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 public class StringUtils {
 
+	private static long[] firstStringArr;
+	private static long[] secondStringArr;
+
 	/**
+	 * To count char values in the given string
 	 * @param name
 	 * @param value
 	 * @return count
@@ -24,6 +32,7 @@ public class StringUtils {
 	}
 
 	/**
+	 * To generate characters by the given number of times
 	 * @param count
 	 * @param val
 	 * @return String
@@ -39,6 +48,7 @@ public class StringUtils {
 	}
 
 	/**
+	 * To print repeated char value with the given number of times by using Recursion
 	 * @param value
 	 * @param num
 	 * @return String
@@ -58,6 +68,7 @@ public class StringUtils {
 	}
 
 	/**
+	 * To print repeated char value with the given number of times by using for loop
 	 * @param value
 	 * @param num
 	 * @return string
@@ -77,6 +88,7 @@ public class StringUtils {
 	}
 
 	/**
+	 * To count vowels with out duplicates
 	 * @param string
 	 * @return int
 	 * @author venkata subbaiah
@@ -102,6 +114,7 @@ public class StringUtils {
 	}
 
 	/**
+	 * To remove extra spaces in the given string
 	 * @param string
 	 * @return String
 	 * @author venkata subbaiah
@@ -117,6 +130,7 @@ public class StringUtils {
 	}
 
 	/**
+	 * To count the vowels in the given string
 	 * @param name
 	 * @return int
 	 * @author venkata subbaiah
@@ -139,6 +153,7 @@ public class StringUtils {
 	}
 
 	/**
+	 * In a string,replace the existence word with new word
 	 * @param name
 	 * @param old
 	 * @param newOne
@@ -156,6 +171,7 @@ public class StringUtils {
 	}
 
 	/**
+	 * Retrive the string with substring method
 	 * @param name
 	 * @param num
 	 * @return String
@@ -172,6 +188,7 @@ public class StringUtils {
 	}
 
 	/**
+	 * Retrive the string with out substring method
 	 * @param s
 	 * @param inital
 	 * @param end
@@ -192,6 +209,7 @@ public class StringUtils {
 	}
 
 	/**
+	 * Retrive the extension in the given string
 	 * @param fileName
 	 * @return string
 	 * @author venkata subbaiah
@@ -210,6 +228,7 @@ public class StringUtils {
 	}
 
 	/**
+	 * To checking the given string is palindrome or not
 	 * @param original
 	 * @return boolean
 	 * @author venkata subbaiah
@@ -227,6 +246,7 @@ public class StringUtils {
 	}
 
 	/**
+	 * To remove special cahracters in the given string
 	 * @param name
 	 * @return String
 	 * @throws Exception
@@ -237,12 +257,12 @@ public class StringUtils {
 		if (name == null) {
 			throw new Exception("Name can not be null");
 		}
-		//TODO need to know about regex symbol (^)
-		return  name.replaceAll("[^a-zA-Z0-9]", "");
+		// TODO need to know about regex symbol (^)
+		return name.replaceAll("[^a-zA-Z0-9]", "");
 	}
 
 	/**
-	 * TODO need to write description
+	 * To remove duplicate characters in the given string
 	 * @param str
 	 * @return StringBuilder
 	 * @throws Exception
@@ -271,11 +291,12 @@ public class StringUtils {
 	}
 
 	/**
+	 * sort the given string in the alphabaical order
 	 * @param str
 	 * @return String
 	 * @throws Exception
 	 * @author venkata subbaiah
-	 * @since 2021-10-20;
+	 * @since 2021-10-20
 	 */
 	public static String sortStringCharacters(String str) throws Exception {
 		if (str == null) {
@@ -292,13 +313,131 @@ public class StringUtils {
 				}
 			}
 		}
-		return str;
+		return new String(arr);
 	}
 
+	/**
+	 * To reverse each word in the given string
+	 * @param s
+	 * @return String
+	 * @throws Exception
+	 * @author venkata subbaiah
+	 * @since 2021-10-21
+	 */
+	public static String reverseEachWordInGivenString(String s) throws Exception {
+		if (s == null) {
+			throw new Exception("String can not be null");
+		}
+		String reverseWords = "";
+		String[] words = s.split(" ");
+		for (String word : words) {
+			String revWord = "";
+			for (int i = word.length() - 1; i >= 0; i--) {
+				revWord = revWord + word.charAt(i);
+			}
+			reverseWords = reverseWords + revWord + " ";
+		}
+		return reverseWords;
+	}
+	
+	/**
+	 * To count the number of words in the given string
+	 * @param s
+	 * @return
+	 * @throws Exception
+	 * @author venkata subbaiah
+	 * @since 2021-10-21
+	 */
+	public static int countTheWordsInTheGivenString(String s) throws Exception {
+		if (s == null) {
+			throw new Exception("String can not be null");
+		}
+		int count = 0;
+		for (int i = 0; i < s.length() - 1; i++) {
+			if ((s.charAt(i) == ' ') && (s.charAt(i + 1) != ' ')) {
+				count++;
+			}
+		}
+		return count;
+	}                        
+	
+	/**
+	 * To count the occurance of each character in a given string 
+	 * @param s
+	 * @return map
+	 * @throws Exception
+	 * @author venkata subbaiah
+	 * @since 2021-10-21
+	 */
+	public static Map<Character, Integer> countTheOccuranceOfEachCharacter(String s) throws Exception {
+		if (s == null) {
+			throw new Exception("String can not be null");
+		}
+		s = s.replace(" ", "");
+		char arr[] = s.toCharArray();
+		int count = 0;
+		Map<Character, Integer> map = new HashMap<>();
+		for (int i = 0; i < arr.length; i++) {
+			count = 0;
+			for (int j = 0; j < arr.length; j++) {
+				if (arr[i] == arr[j]) {
+					count++;
+				}
+			}
+			map.put(arr[i], count);
+		}
+		return map;
+	}
+	
+	/**
+	 * To capitalize the each word in a given string
+	 * @param s
+	 * @return string
+	 * @author venkata subbaiah
+	 * @throws Exception 
+	 * @since 2021-10-21
+	 */
+	public static String capitalizeEachWordInGivenString(String s) throws Exception {
+		if (s == null) {
+			throw new Exception("String can not be null");
+		}
+		s = " " + s;
+		String str = "";
+		for (int i = 0; i < s.length(); i++) {
+			char ch = s.charAt(i);
+			if (ch == ' ') {
+				str = str + ch;
+				i++;
+				ch = s.charAt(i);
+				str = str + Character.toUpperCase(ch);
+			} else {
+				str = str + ch;
+			}
+		}
+		str = str.trim();
+		return str;
+	}
+	
+	public static boolean checkingTwoStringsAnagramorNot(String firstString, String secondString) throws Exception {
+		if (firstString == null || secondString == null) {
+			throw new Exception("Strings can not be null");
+		}
+		firstString = firstString.replaceAll("\\s", "");
+		secondString = secondString.replaceAll("\\s", "");
+		if (firstString.length() != secondString.length()) {
+			return false;
+		} else {
+			char[] firstStringArr = firstString.toCharArray();
+			char[] secondStringArr = secondString.toCharArray();
+			Arrays.parallelSort(firstStringArr);
+			Arrays.parallelSort(secondStringArr);
+		}
+		return Arrays.equals(firstStringArr, secondStringArr);
+	}
+	
 	public static void main(String[] args) throws Exception {
 
-		// System.out.println(countCharValueInGivenString("thresold softwaresolution",
-		// 'o'));
+		//stem.out.println(countCharValueInGivenString("thresold softwaresolution", 'o'));
 		// System.out.println(generateCharacters(3, 'g'));
 		// System.out.println(repeatCharWithGivenValue('d', 6));
 		// System.out.println(repeatCharCount('f', 4));
@@ -311,9 +450,12 @@ public class StringUtils {
 		// System.out.println(extensionInString("chinna.txt"));
 		// System.out.println(palindromeCheck("assdssa"));
 		// System.out.println(removeSpecialCharacter("as@md$ndvtf%jn&hh*"));
-		 System.out.println(removeDuplicateCharacters("java404"));
-		//System.out.println(sortStringCharacters("sdfsdcabaa jns"));
-
+		//System.out.println(removeDuplicateCharacters("java404"));
+		// System.out.println(sortStringCharacters("java404"));
+		//ystem.out.println(reverseEachWordInGivenString("th533 i5632s i222512444s ch1424int431na"));
+		//System.out.println(countTheWordsInTheGivenString("this is my frnd name"));
+		//System.out.println(countTheOccuranceOfEachCharacter("chinna i love u"));
+		//System.out.println(capitalizeEachWordInGivenString("123bdf 4332 ndnes jdbashja"));
+		System.out.println(checkingTwoStringsAnagramorNot("chinna","nanihc"));
 	}
-
 }
