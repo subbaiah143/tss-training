@@ -418,6 +418,15 @@ public class StringUtils {
 		return str;
 	}
 	
+	/**
+	 * Checking the given two Strings are anagram or not
+	 * @param firstString
+	 * @param secondString
+	 * @return boolean
+	 * @throws Exception
+	 * @author venkata subbaiah
+	 * @since 2021-10-21
+	 */
 	public static boolean checkingTwoStringsAnagramorNot(String firstString, String secondString) throws Exception {
 		if (firstString == null || secondString == null) {
 			throw new Exception("Strings can not be null");
