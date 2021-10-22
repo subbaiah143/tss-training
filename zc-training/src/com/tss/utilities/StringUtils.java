@@ -3,6 +3,9 @@ package com.tss.utilities;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.io.*;
 
 public class StringUtils {
 
@@ -444,6 +447,23 @@ public class StringUtils {
 		return Arrays.equals(firstStringArr, secondStringArr);
 	}
 	
+	/**
+	 *To validate given string data is valid phone number or not
+	 * @param s
+	 * @return boolean
+	 * @throws Exception
+	 * @author venkata subbaiah
+	 * @since 2021-10-22
+	 */
+	public static boolean validatePhone(String s) throws Exception {
+		if (s == null) {
+			throw new Exception("Phone cannot be null");
+		}
+		Pattern p = Pattern.compile("^([0]|\\+91)?[\\-]?[\s]?[6-9]{1}[0-9]{2}[\\-]?[\s]?[0-9]{3}[\\-]?[\s]?[0-9]{4}$");
+		Matcher m = p.matcher(s);
+		return m.matches();
+	}
+
 	public static void main(String[] args) throws Exception {
 
 		//stem.out.println(countCharValueInGivenString("thresold softwaresolution", 'o'));
@@ -465,6 +485,10 @@ public class StringUtils {
 		//System.out.println(countTheWordsInTheGivenString("this is my frnd name"));
 		//System.out.println(countTheOccuranceOfEachCharacter("chinna i love u"));
 		//System.out.println(capitalizeEachWordInGivenString("123bdf 4332 ndnes jdbashja"));
-		System.out.println(checkingTwoStringsAnagramorNot("chinna","nanihc"));
+		//System.out.println(checkingTwoStringsAnagramorNot("chinna","nanihc"));
+		
+		System.out.println(validatePhone("+96000000000"));
+		
+		
 	}
 }
