@@ -48,7 +48,8 @@ public class StringUtils {
 	}
 
 	/**
-	 * To print repeated char value with the given number of times by using Recursion
+	 * To print repeated char value with the given number of times by using
+	 * Recursion
 	 * @param value
 	 * @param num
 	 * @return String
@@ -338,7 +339,7 @@ public class StringUtils {
 		}
 		return reverseWords;
 	}
-	
+
 	/**
 	 * To count the number of words in the given string
 	 * @param s
@@ -358,10 +359,10 @@ public class StringUtils {
 			}
 		}
 		return count;
-	}                        
-	
+	}
+
 	/**
-	 * To count the occurance of each character in a given string 
+	 * To count the occurance of each character in a given string
 	 * @param s
 	 * @return map
 	 * @throws Exception
@@ -387,13 +388,13 @@ public class StringUtils {
 		}
 		return map;
 	}
-	
+
 	/**
 	 * To capitalize the each word in a given string
 	 * @param s
 	 * @return string
 	 * @author venkata subbaiah
-	 * @throws Exception 
+	 * @throws Exception
 	 * @since 2021-10-21
 	 */
 	public static String capitalizeEachWordInGivenString(String s) throws Exception {
@@ -416,7 +417,7 @@ public class StringUtils {
 		str = str.trim();
 		return str;
 	}
-	
+
 	/**
 	 * Checking the given two Strings are anagram or not
 	 * @param firstString
@@ -440,11 +441,12 @@ public class StringUtils {
 			Arrays.parallelSort(firstStringArr);
 			Arrays.parallelSort(secondStringArr);
 		}
+		long[] firstStringArr = null, secondStringArr = null;
 		return Arrays.equals(firstStringArr, secondStringArr);
 	}
-	
+
 	/**
-	 *To validate given string data is valid phone number or not
+	 * To validate given string data is valid phone number or not
 	 * @param s
 	 * @return boolean
 	 * @throws Exception
@@ -455,36 +457,8 @@ public class StringUtils {
 		if (s == null) {
 			throw new Exception("Phone cannot be null");
 		}
-		Pattern p = Pattern.compile("^([0]|\\+91)?[\\-]?[\s]?[6-9]{1}[0-9]{2}[\\-]?[\s]?[0-9]{3}[\\-]?[\s]?[0-9]{4}$");
+		Pattern p = Pattern.compile("^(\\+91)?[6-9][0-9]{2}[\\-]?[0-9]{3}[\\-]?[0-9]{4}$");
 		Matcher m = p.matcher(s);
 		return m.matches();
-	}
-
-	public static void main(String[] args) throws Exception {
-
-		//stem.out.println(countCharValueInGivenString("thresold softwaresolution", 'o'));
-		// System.out.println(generateCharacters(3, 'g'));
-		// System.out.println(repeatCharWithGivenValue('d', 6));
-		// System.out.println(repeatCharCount('f', 4));
-		// System.out.println(countVowelsWithOutDuplicate("chinna bodicherla"));
-		// System.out.println(removeExtraSpaces("sai ram"));
-		// System.out.println(countVowelInGivenString("bchhbFFSJAKC"));
-		// System.out.println(replaceWithNew("my name is chinna", "is", "are"));
-		// System.out.println(subStringSample("chinna bodicherla", 4));
-		// System.out.println(withOutSubString("hello java", 3, 9));
-		// System.out.println(extensionInString("chinna.txt"));
-		// System.out.println(palindromeCheck("assdssa"));
-		// System.out.println(removeSpecialCharacter("as@md$ndvtf%jn&hh*"));
-		//System.out.println(removeDuplicateCharacters("java404"));
-		// System.out.println(sortStringCharacters("java404"));
-		//ystem.out.println(reverseEachWordInGivenString("th533 i5632s i222512444s ch1424int431na"));
-		//System.out.println(countTheWordsInTheGivenString("this is my frnd name"));
-		//System.out.println(countTheOccuranceOfEachCharacter("chinna i love u"));
-		//System.out.println(capitalizeEachWordInGivenString("123bdf 4332 ndnes jdbashja"));
-		//System.out.println(checkingTwoStringsAnagramorNot("chinna","nanihc"));
-		
-		System.out.println(validatePhone("+96000000000"));
-		
-		
 	}
 }
