@@ -9,9 +9,6 @@ import java.io.*;
 
 public class StringUtils {
 
-	private static long[] firstStringArr;
-	private static long[] secondStringArr;
-
 	/**
 	 * To count char values in the given string
 	 * @param name
@@ -23,7 +20,7 @@ public class StringUtils {
 	 */
 	public static int countCharValueInGivenString(String name, char value) throws Exception {
 		if (name == null) {
-			throw new Exception("Name should not be null");
+			throw new Exception("Name cannot be null");
 		}
 		int count = 0;
 		for (int i = 0; i < name.length(); i++) {
@@ -100,7 +97,7 @@ public class StringUtils {
 	 */
 	public static int countVowelsWithOutDuplicate(String s) throws Exception {
 		if (s == null) {
-			throw new Exception("String can not be null");
+			throw new Exception("String cannot be null");
 		}
 		s = s.toLowerCase();
 		int l = s.length();
@@ -126,7 +123,7 @@ public class StringUtils {
 	 */
 	public static String removeExtraSpaces(String s) throws Exception {
 		if (s == null) {
-			throw new Exception("Name shold not be null");
+			throw new Exception("Name cannot be null");
 		}
 		String str = s.replaceAll("\\s", "").trim();
 		return str;
@@ -142,7 +139,7 @@ public class StringUtils {
 	 */
 	public static int countVowelInGivenString(String name) throws Exception {
 		if (name == null) {
-			throw new Exception("Name can not be null");
+			throw new Exception("Name cannot be null");
 		}
 		int vCount = 0;
 		name = name.toLowerCase();
@@ -167,7 +164,7 @@ public class StringUtils {
 	 */
 	public static String replaceWithNew(String name, String replacedWord, String newword) throws Exception {
 		if (name == null || replacedWord == null || newword == null) {
-			throw new Exception("Strings can not be null");
+			throw new Exception("Strings cannot be null");
 		}
 		name = name.replace(replacedWord, newword);
 		return name;
@@ -184,7 +181,7 @@ public class StringUtils {
 	 */
 	public static String subStringSample(String name, int num) throws Exception {
 		if (name == null) {
-			throw new Exception("Name can not be null");
+			throw new Exception("Name cannot be null");
 		}
 		name = name.substring(num);
 		return name;
@@ -202,7 +199,7 @@ public class StringUtils {
 	 */
 	public static String withOutSubString(String s, int inital, int end) throws Exception {
 		if (s == null) {
-			throw new Exception("String can not be null");
+			throw new Exception("String cannot be null");
 		}
 		String newStr = "";
 		for (int i = inital; i < end; i++) {
@@ -220,7 +217,7 @@ public class StringUtils {
 	 */
 	public static String extensionInString(String name) {
 		if (name == null) {
-			new Exception("Name can not be null");
+			new Exception("Name cannot be null");
 		}
 		int index = name.lastIndexOf('.');
 		String extension = "";
@@ -239,7 +236,7 @@ public class StringUtils {
 	 */
 	public static boolean palindromeCheck(String original) {
 		if (original == null) {
-			new Exception("String  can not be null");
+			new Exception("String  cannot be null");
 		}
 		String reverse = "";
 		for (int i = original.length() - 1; i >= 0; i--) {
@@ -258,9 +255,8 @@ public class StringUtils {
 	 */
 	public static String removeSpecialCharacter(String name) throws Exception {
 		if (name == null) {
-			throw new Exception("Name can not be null");
+			throw new Exception("Name cannot be null");
 		}
-		// TODO need to know about regex symbol (^)
 		return name.replaceAll("[^a-zA-Z0-9]", "");
 	}
 
@@ -274,7 +270,7 @@ public class StringUtils {
 	 */
 	public static StringBuilder removeDuplicateCharacters(String str) throws Exception {
 		if (str == null) {
-			throw new Exception("Str can not be null");
+			throw new Exception("String cannot be null");
 		}
 		char[] arr = str.toCharArray();
 		StringBuilder sb = new StringBuilder();
@@ -303,7 +299,7 @@ public class StringUtils {
 	 */
 	public static String sortStringCharacters(String str) throws Exception {
 		if (str == null) {
-			throw new Exception("Str can not be null");
+			throw new Exception("String cannot be null");
 		}
 		char[] arr = str.toCharArray();
 		char temp;
@@ -329,7 +325,7 @@ public class StringUtils {
 	 */
 	public static String reverseEachWordInGivenString(String s) throws Exception {
 		if (s == null) {
-			throw new Exception("String can not be null");
+			throw new Exception("String cannot be null");
 		}
 		String reverseWords = "";
 		String[] words = s.split(" ");
@@ -353,7 +349,7 @@ public class StringUtils {
 	 */
 	public static int countTheWordsInTheGivenString(String s) throws Exception {
 		if (s == null) {
-			throw new Exception("String can not be null");
+			throw new Exception("String cannot be null");
 		}
 		int count = 0;
 		for (int i = 0; i < s.length() - 1; i++) {
@@ -374,7 +370,7 @@ public class StringUtils {
 	 */
 	public static Map<Character, Integer> countTheOccuranceOfEachCharacter(String s) throws Exception {
 		if (s == null) {
-			throw new Exception("String can not be null");
+			throw new Exception("String cannot be null");
 		}
 		s = s.replace(" ", "");
 		char arr[] = s.toCharArray();
@@ -402,7 +398,7 @@ public class StringUtils {
 	 */
 	public static String capitalizeEachWordInGivenString(String s) throws Exception {
 		if (s == null) {
-			throw new Exception("String can not be null");
+			throw new Exception("String cannot be null");
 		}
 		s = " " + s;
 		String str = "";
@@ -432,7 +428,7 @@ public class StringUtils {
 	 */
 	public static boolean checkingTwoStringsAnagramorNot(String firstString, String secondString) throws Exception {
 		if (firstString == null || secondString == null) {
-			throw new Exception("Strings can not be null");
+			throw new Exception("Strings cannot be null");
 		}
 		firstString = firstString.replaceAll("\\s", "");
 		secondString = secondString.replaceAll("\\s", "");
